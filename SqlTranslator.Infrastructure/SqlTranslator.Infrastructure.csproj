@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\SqlTranslator.Application\SqlTranslator.Application.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Antlr4.CodeGenerator" Version="4.6.6">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Antlr4.Runtime.Standard" Version="4.13.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Configuração para T-SQL -->
+		<Antlr4 Include="Grammars\TSQL\TSqlLexer.g4" TargetLanguage="CSharp" Package="SqlTranslator.Infrastructure.Grammars.TSQL" Listener="false" Visitor="true" GeneratingVisitor="true" />
+
+		<Antlr4 Include="Grammars\TSQL\TSqlParser.g4" TargetLanguage="CSharp" Package="SqlTranslator.Infrastructure.Grammars.TSQL" Listener="false" Visitor="true" GeneratingVisitor="true" />
+
+		<!-- Configuração para PL/SQL -->
+		<Antlr4 Include="Grammars\PLSQL\PlSqlLexer.g4" TargetLanguage="CSharp" Package="SqlTranslator.Infrastructure.Grammars.PLSQL" Listener="false" Visitor="true" GeneratingVisitor="true" />
+
+		<Antlr4 Include="Grammars\PLSQL\PlSqlParser.g4" TargetLanguage="CSharp" Package="SqlTranslator.Infrastructure.Grammars.PLSQL" Listener="false" Visitor="true" GeneratingVisitor="true" />
+
+		<!-- Configuração para MySQL -->
+		<Antlr4 Include="Grammars\MySQL\MySqlLexer.g4" TargetLanguage="CSharp" Package="SqlTranslator.Infrastructure.Grammars.MySQL" Listener="false" Visitor="true" GeneratingVisitor="true" />
+
+		<Antlr4 Include="Grammars\MySQL\MySqlParser.g4" TargetLanguage="CSharp" Package="SqlTranslator.Infrastructure.Grammars.MySQL" Listener="false" Visitor="true" GeneratingVisitor="true" />
+
+		<!-- Configuração para PostgreSQL -->
+		<Antlr4 Include="Grammars\PostgreSQL\PostgresLexer.g4" TargetLanguage="CSharp" Package="SqlTranslator.Infrastructure.Grammars.PostgreSQL" Listener="false" Visitor="true" GeneratingVisitor="true" />
+
+		<Antlr4 Include="Grammars\PostgreSQL\PostgresParser.g4" TargetLanguage="CSharp" Package="SqlTranslator.Infrastructure.Grammars.PostgreSQL" Listener="false" Visitor="true" GeneratingVisitor="true" />
+	</ItemGroup>
+
+</Project>

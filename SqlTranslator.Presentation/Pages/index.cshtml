@@ -1,0 +1,20 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "SQL Translator";
+}
+
+<h2>SQL Translator</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="queryInput">Enter SQL Query (MySQL):</label>
+        <textarea class="form-control" id="queryInput" name="QueryText" rows="5">@Model.QueryText</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Translate</button>
+</form>
+
+<h3>Translated Query (PostgreSQL):</h3>
+<div class="form-group">
+    <textarea class="form-control" id="translatedQuery" rows="5" readonly>@Model.TranslatedQuery</textarea>
+</div>
